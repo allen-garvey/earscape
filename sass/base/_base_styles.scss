@@ -1,0 +1,50 @@
+/**
+* Base styles
+*/
+html{
+	font-size: 16px;
+}
+body{
+	@include font_body;
+	background-color: $color_background_main;
+}
+
+h1,h2,h3,h4{
+	@include font_heading;
+	font-weight : normal;
+}
+h1{
+	@include font_size(4);
+}
+h2{
+	@include font_size(3);
+}
+h3{
+	@include font_size(2);
+}
+h4{
+	@include font_size(1);
+}
+
+img,svg{
+	max-width: 100%;
+}
+a{
+	color: $color_secondary;
+}
+
+/**
+* Layout
+*/
+.container{
+	max-width: $container_width;
+	margin: 0 auto;
+}
+
+/**
+* Header and nav styles
+*/
+.jumbotron{
+	@include font_brand;
+	background-color: lighten($color_primary, 40%);
+}

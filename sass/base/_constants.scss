@@ -1,0 +1,27 @@
+/**
+* Constants
+*/
+//type scale descriptive names
+$type_scale_min3 : 1.20;
+$type_scale_maj3 : 1.25;
+$type_scale_p4   : 1.333;
+$type_scale_aug4 : 1.414;
+$type_scale_p5   : 1.5;
+
+//type scale
+$type_scale : $type_scale_p4;
+
+//color names
+
+//colors roles
+$color_primary : black;
+$color_secondary : gray;
+$color_background_main : white;
+
+//layout
+$container_width : 950px;
+
+//media queries
+$breakpoint_sm : 768px;
+$breakpoint_med : 992px;
+$breakpoint_lg : 1200px;
