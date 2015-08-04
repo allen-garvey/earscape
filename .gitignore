@@ -8,3 +8,7 @@ styles/*.css
 node_modules/*
 scripts/*.js
 scripts/*.map
+*.svg
+*.png
+*.jpg
+*.jpeg
