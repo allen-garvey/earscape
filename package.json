@@ -1,0 +1,26 @@
+{
+  "name": "earscape",
+  "version": "1.0.0",
+  "description": "Generate a random twelve-tone melody",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allen-garvey/earscape.git"
+  },
+  "author": "Allen Garvey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allen-garvey/earscape/issues"
+  },
+  "homepage": "https://github.com/allen-garvey/earscape",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}
