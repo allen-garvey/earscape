@@ -4,8 +4,8 @@ define('ENVIRONMENT_PRODUCTION', 1);
 require_once('current_environment.php'); //gets environment_current constant
 
 if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT){
-	define('BASE_URL','/band_js_test/');
-	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT'] . '/band_js_test/');
+	define('BASE_URL','/earscape/');
+	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT'] . '/earscape/');
 }
 
 define('INC_PATH', ROOT_PATH.'inc/');

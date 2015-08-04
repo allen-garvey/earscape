@@ -10,7 +10,8 @@
     </head>
     <body>
         <main class='container'>
-            <h1>Test of Band.js</h1>
+            <h1>Earscape</h1>
+            <p>Generate your own random twelve-tone melody!</p>
             <div class='play_button'>
                 <img src="<?= IMAGES_URL.'ei-play.svg'; ?>" alt="" onclick='play()' />
             </div>
