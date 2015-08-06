@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Test of Band.js</title>
+        <title>Earscape</title>
         <meta name="description" content="Test of band.js library"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" type="text/css" href="<?= STYLES_URL.'master.css'; ?>"/>
