@@ -1,0 +1,13 @@
+/**
+* Header and nav styles
+*/
+.jumbotron{
+	@include font_brand;
+	// background-color: lighten($color_primary, 40%);
+}
+.jumbotron .brand{
+	margin-bottom:0;
+}
+.lead{
+	margin-top:0;
+}

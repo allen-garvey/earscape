@@ -40,11 +40,3 @@ a{
 	max-width: $container_width;
 	margin: 0 auto;
 }
-
-/**
-* Header and nav styles
-*/
-.jumbotron{
-	@include font_brand;
-	background-color: lighten($color_primary, 40%);
-}
