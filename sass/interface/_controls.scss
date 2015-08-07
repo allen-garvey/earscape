@@ -1,0 +1,93 @@
+$svg_button_max_width: 75px;
+$controls_max_width: 50%;
+
+.controls, .playlist{
+	@include media_q(sm){
+		max-width: $controls_max_width;
+	}
+}
+.flex_container{
+	display:-webkit-flex;
+	display:flex;
+	-webkit-align-items:center;
+	align-items:center;
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+}
+.controls ul{
+	margin-top:0;
+	display:inline;
+	list-style-type:none;
+	li{
+		margin-bottom: 0.5em;
+	}
+}
+.button_container{
+	svg{
+		height: 2em;
+	}
+	span{
+		white-space: nowrap;
+		vertical-align: 50%;
+	}
+}
+.button_container:hover{
+	color: $color_secondary;
+	svg{
+		fill: $color_secondary;
+	}
+}
+
+.play{
+	display:inline;
+	svg{
+		height: $svg_button_max_width;
+	}
+}
+.tempo_slider{
+	-webkit-flex-grow: 1; //fills remaining width
+}
+.tempo_input{
+	@include font_size(1);
+	width: 3em;
+	margin-right: 1em;
+}
+
+.playlist{
+	ol{
+		list-style-position: inside;
+		padding:0;
+	}
+	li{
+		padding: 1em 0;
+		&:hover{
+			background: rgb(255,255,255); /* Old browsers */
+			background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(241,241,241,1) 38%, rgba(225,225,225,1) 72%, rgba(246,246,246,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(38%,rgba(241,241,241,1)), color-stop(72%,rgba(225,225,225,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 38%,rgba(225,225,225,1) 72%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 38%,rgba(225,225,225,1) 72%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 38%,rgba(225,225,225,1) 72%,rgba(246,246,246,1) 100%); /* IE10+ */
+			background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 38%,rgba(225,225,225,1) 72%,rgba(246,246,246,1) 100%); /* W3C */
+		}
+		&.selected{
+			font-weight: bold;
+		}
+	}
+	svg{
+		height: 1.5em;
+		vertical-align: bottom;
+		margin-left: 2em;
+		&:hover{
+			fill: $color_background_main;
+		}
+	}
+}
+.options{
+	ul{
+		padding:0;
+	}
+	li{
+		display: inline;
+		margin-right: 2em;
+	}
+}
