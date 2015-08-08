@@ -27,7 +27,7 @@
                     </ul>
                 </div>
             </div>
-            <div id='sheet_music'>
+            <div id='sheet_music' class='vex-tabdiv'>
             </div>
             <div class='options'>
                 <ul>
