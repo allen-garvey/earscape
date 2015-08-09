@@ -1,6 +1,5 @@
 function init(){
-	var melodyFactory = new ESC.models.MelodyFactory();
-	var melody = melodyFactory.getToneRow();
+	var melody =  ESC.models.MelodyFactory.getToneRow();
 	
 	var sheet_music = document.getElementById('sheet_music');
 	sheet_music.innerHTML = melody.toNotation();
