@@ -102,7 +102,7 @@ ESC.models.Melody.prototype.getPlayer = function(){
 */
 ESC.models.MelodyFactory = function(){};
 
-ESC.models.MelodyFactory.prototype.getToneRow = function(){
+ESC.models.MelodyFactory.getToneRow = function(){
 	var melody = new ESC.models.Melody();
 	var pitches = ESC.array.shuffle(ESC.array.range(0,12));
 	for(var i=0;i<12;i++){
