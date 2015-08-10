@@ -22,6 +22,16 @@ ESC.controllers.PlayItem.prototype.getTitle = function(){
 	return this.currentMelody.getTitle();
 }
 
+ESC.controllers.PlayItem.prototype.setTransformation = function(type){
+	if(type === 'retrograde'){
+		this.currentMelody = this.baseMelody.retrograde();
+	}
+	//type is original
+	else{
+		this.currentMelody = this.baseMelody;
+	}
+}
+
 /*
 * Jukebox - master controller for app
 * keeps track of a list of PlayItems
@@ -67,4 +77,18 @@ ESC.controllers.Jukebox.prototype.play = function(){
 ESC.controllers.Jukebox.prototype.newPlayItem = function(){
 	this.addPlayItem(new ESC.controllers.PlayItem(ESC.models.MelodyFactory.getToneRow()));
 }
-
+ESC.controllers.Jukebox.prototype.melodyWithNew = function(attr){
+	var newMelody;
+	if(attr === 'notes'){
+		newMelody = ESC.models.MelodyFactory.replacePitches(this.currentPlayItem.currentMelody);
+	}
+	// replace rhythm
+	else{
+		newMelody = ESC.models.MelodyFactory.replaceRhythms(this.currentPlayItem.currentMelody);
+	}
+	this.addPlayItem(new ESC.controllers.PlayItem(newMelody));
+}
+ESC.controllers.Jukebox.prototype.transformMelody = function(type){
+	this.currentPlayItem.setTransformation(type);
+	this.displayCurrentPlayItem();
+}
