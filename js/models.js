@@ -103,6 +103,25 @@ ESC.models.Melody.prototype.getTitle = function(){
 	return title.slice(0, - 1);
 }
 
+ESC.models.Melody.prototype.copy = function(){
+	var copy = new ESC.models.Melody();
+	copy.tempo = this.tempo;
+	copy.timeSignature.top = this.timeSignature.top;
+	copy.timeSignature.bottom = this.timeSignature.bottom; 
+	var len = this.pitches.length;
+	for (var i = 0; i < len; i++) {
+		copy.pitches.push(new ESC.models.Pitch(this.pitches[i].noteNum, this.pitches[i].octave));
+		copy.rhythms.push(new ESC.models.Rhythm(this.rhythms[i].duration));
+	};
+	return copy;
+}
+ESC.models.Melody.prototype.retrograde = function(){
+	var retrograde = this.copy();
+	retrograde.pitches.reverse();
+	retrograde.rhythms.reverse();
+	return retrograde;
+}
+
 /*
 * Melody Factory
 * Class to conveniently build various kinds of melodies
@@ -114,7 +133,41 @@ ESC.models.MelodyFactory.getToneRow = function(){
 	var pitches = ESC.array.shuffle(ESC.array.range(0,12));
 	for(var i=0;i<12;i++){
 		melody.pitches.push(new ESC.models.Pitch(pitches[i], 4));
-		melody.rhythms.push(new ESC.models.Rhythm(ESC.array.randItem(Object.keys(ESC.models.Rhythm.durationMap))));
+		melody.rhythms.push(ESC.models.MelodyFactory.randRhythm());
 	}
 	return melody;
+}
+/*
+* Return ESC.models.Rhythm object of random duration
+*/
+ESC.models.MelodyFactory.randRhythm = function(){
+	return new ESC.models.Rhythm(ESC.array.randItem(Object.keys(ESC.models.Rhythm.durationMap)));
+}
+/*
+* Takes a melody and return a new melody with pitches replaced with new random ones
+* @param melody - instance of ESC.models.Melody
+*/
+ESC.models.MelodyFactory.replacePitches = function(melody){
+	var newMelody = melody.copy();
+	newMelody.pitches = [];
+	var len = melody.pitches.length;
+	var pitches = ESC.array.shuffle(ESC.array.range(0,12));
+	for (var i = 0; i < len; i++) {
+		newMelody.pitches.push(new ESC.models.Pitch(pitches[i], 4));
+	};
+	return newMelody;
+}
+
+/*
+* Takes a melody and return a new melody with rhythms replaced with new random ones
+* @param melody - instance of ESC.models.Melody
+*/
+ESC.models.MelodyFactory.replaceRhythms = function(melody){
+	var newMelody = melody.copy();
+	newMelody.rhythms = [];
+	var len = melody.rhythms.length;
+	for (var i = 0; i < len; i++) {
+		newMelody.rhythms.push(ESC.models.MelodyFactory.randRhythm());
+	};
+	return newMelody;
 }
