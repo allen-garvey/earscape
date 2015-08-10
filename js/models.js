@@ -19,7 +19,7 @@ ESC.models.Pitch.prototype.toString = function(){
 	return ESC.models.Pitch.pitchNames[this.noteNum] + this.octave;
 }
 ESC.models.Pitch.prototype.toHTML = function(){
-	return ESC.models.Pitch.pitchNames[this.noteNum].replace('b', '&#9837').replace('#', '&#9839;');
+	return ESC.models.Pitch.pitchNames[this.noteNum].replace('#', '&#9839;').replace('b', '&#9837;');
 }
 
 /*
@@ -94,6 +94,13 @@ ESC.models.Melody.prototype.getPlayer = function(){
 		piano.note(this.rhythms[i].toString(), this.pitches[i].toString());
 	};
 	return conductor.finish();
+}
+ESC.models.Melody.prototype.getTitle = function(){
+	var title = '';
+	this.pitches.forEach(function(pitch) {
+		title = title + pitch.toHTML() + '-';
+	});
+	return title.slice(0, - 1);
 }
 
 /*
