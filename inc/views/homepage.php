@@ -19,15 +19,16 @@
             <div class='controls'>
                 <div class='flex_container'><input type="number" class='tempo_input' value='120' /><input type="range" min='1' max='300' step='1' class='tempo_slider' /></div>
                 <div class='flex_container'>
-                    <div class='button_container play'><?php include(SVG_PATH.'ei-play.svg'); ?></div>
+                    <div class='button_container play' id='play_button'><?php include(SVG_PATH.'ei-play.svg'); ?></div>
                     <ul>
-                        <li><div class='button_container'><?php include(SVG_PATH.'ei-plus.svg'); ?><span>New Melody</span></div></li>
+                        <li><div class='button_container' id='new_button'><?php include(SVG_PATH.'ei-plus.svg'); ?><span>New Melody</span></div></li>
                         <li><div class='button_container'><?php include(SVG_PATH.'ei-refresh.svg'); ?><span>Change Notes</span></div></li>
                         <li><div class='button_container'><?php include(SVG_PATH.'ei-refresh.svg'); ?><span>Change Rhythm</span></div></li>
                     </ul>
                 </div>
             </div>
-            <div id='sheet_music' class='vex-tabdiv'>
+            <div id='sheet_music'>
+                <canvas class="vex-canvas" id='sheet_music_canvas'  width="400" height="200"></canvas>
             </div>
             <div class='options'>
                 <ul>
@@ -38,15 +39,14 @@
                 </ul>
             </div>
             <div class='playlist'>
-                <ol>
-                    <li class='selected'><span>F#-A-B-C-D-E-F-G-G#-Bb-C#-Eb </span><?php include(SVG_PATH.'ei-star.svg'); ?></li>
-                    <li><span>F#-A-B-C-D-E-F-G-G#-Bb-C#-Eb </span><?php include(SVG_PATH.'ei-star.svg'); ?></li>
+                <ol id='play_items_list'>
+                    <li class='selected'><span>F#-A-B-C-D-E-F-G-G#-Bb-C#-E&#9837; </span><?php include(SVG_PATH.'ei-star.svg'); ?></li>
                 </ol>
             </div>
 
         </main>
-        <script type="text/javascript" src='<?= SCRIPTS_URL.'band.min.js'; ?>'></script>
         <script type="text/javascript" src='<?= SCRIPTS_URL.'vextab-div.js'; ?>'></script>
+        <script type="text/javascript" src='<?= SCRIPTS_URL.'band.min.js'; ?>'></script>
         <script type="text/javascript" src='<?= SCRIPTS_URL.'app.js'; ?>'></script>
     </body>
 </html>
