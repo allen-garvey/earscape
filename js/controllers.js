@@ -40,6 +40,7 @@ ESC.controllers.Jukebox = function(){
 	this.playItems = [];
 	this.currentPlayItemIndex = -1;
 	this.currentPlayItem = null;
+	this.setTempo(120);
 	
 }
 ESC.controllers.Jukebox.prototype.addPlayItem = function(playItem){
@@ -91,4 +92,11 @@ ESC.controllers.Jukebox.prototype.melodyWithNew = function(attr){
 ESC.controllers.Jukebox.prototype.transformMelody = function(type){
 	this.currentPlayItem.setTransformation(type);
 	this.displayCurrentPlayItem();
+}
+ESC.controllers.Jukebox.prototype.setTempo = function(tempo){
+	tempo = parseInt(tempo);
+	if(!(isNaN(tempo) || tempo > 300 || tempo < 40)){
+		this.tempo = tempo;
+	}
+	$('#tempo_input, #tempo_slider').val(this.tempo);
 }
