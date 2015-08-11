@@ -18,3 +18,6 @@ document.getElementById('button_transform_retrograde').onclick = function(){
 																			$('.transformations li').removeClass('selected');
 																			$(this).addClass('selected');
 																			};
+$('#tempo_input, #tempo_slider').on('change', function(event) {
+	ESC.jukebox.setTempo(this.value);
+});
