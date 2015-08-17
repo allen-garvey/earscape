@@ -17,7 +17,7 @@
         </header>
         <main class='container'>
             <div class='controls'>
-                <div class='flex_container'><input type="number" class='tempo_input' value='120' /><input type="range" min='1' max='300' step='1' value='120' class='tempo_slider' /></div>
+                <div class='flex_container'><input type="number" class='tempo_input' value='120' id='tempo_input' /><input type="range" min='40' max='300' step='1' value='120' class='tempo_slider' id='tempo_slider' /></div>
                 <div class='flex_container'>
                     <div class='button_container play' id='play_button'><?php include(SVG_PATH.'ei-play.svg'); ?></div>
                     <ul>
@@ -40,7 +40,7 @@
             </div>
             <div class='playlist'>
                 <ol id='play_items_list'>
-                    <li class='selected'><span>F#-A-B-C-D-E-F-G-G#-Bb-C#-E&#9837; </span><?php include(SVG_PATH.'ei-star.svg'); ?></li>
+                    
                 </ol>
             </div>
 
