@@ -25,8 +25,8 @@ $('#play_items_list').on('click', 'li', function(){
 	var index = $('#play_items_list li').index($(this));
 	ESC.jukebox.setCurrentPlayItem(index);
 });
-$('#play_items_list').on('click', '.star', function(){
-	console.log($(this));
+$('#play_items_list').on('click', '.star', function(e){
+	e.stopPropagation(); //so that play item is not selected
 	$(this).toggleClass('starred');
 });
 
