@@ -70,6 +70,7 @@ ESC.models.Melody = function(){
 	this.tempo = 120;
 	this.timeSignature = {top: 4, bottom: 4};
 }
+ESC.models.Melody.transformationTypes = ['original', 'inversion', 'retrograde', 'retrograde_inversion'];
 /*
 * Returns string formatted for vextab to turn into notation
 */
@@ -122,6 +123,29 @@ ESC.models.Melody.prototype.retrograde = function(){
 	retrograde.pitches.reverse();
 	retrograde.rhythms.reverse();
 	return retrograde;
+}
+ESC.models.Melody.prototype.inversion = function(){
+	var inverse = this.copy();
+	var reduceValue = function(value){
+		if(value > 11){
+			return value - 12;
+		}
+		if(value < 0){
+			return value + 12;
+		}
+		return value;
+	}
+	var diffArray = [inverse.pitches[0]];
+	for (var i = 1; i < inverse.pitches.length; i++) {
+		var currentPitch = inverse.pitches[i];
+		diffArray.push(new ESC.models.Pitch(currentPitch.noteNum,currentPitch.octave));
+		var diff = reduceValue(currentPitch.noteNum - diffArray[i-1].noteNum);
+		currentPitch.noteNum = reduceValue(inverse.pitches[i-1].noteNum - diff);
+	};
+	return inverse;
+}
+ESC.models.Melody.prototype.retrogradeInversion = function(){
+	return this.retrograde().inversion();
 }
 
 /*
