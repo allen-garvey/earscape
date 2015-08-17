@@ -32,7 +32,7 @@
             </div>
             <div class='transformations'>
                 <ul>
-                    <li id='button_transform_original' class='selected'>Original</li>
+                    <li id='button_transform_original'>Original</li>
                     <li id='button_transform_inversion'>Inversion</li>
                     <li id='button_transform_retrograde'>Retrograde</li>
                     <li id='button_transform_retrograde_inversion'>Retrograde Inversion</li>
