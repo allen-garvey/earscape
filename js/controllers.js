@@ -10,6 +10,7 @@ ESC.controllers.PlayItem = function(melody){
 	this.baseMelody = melody;
 	this.currentMelody = melody;
 	this.isStarred = false;
+	this.melodyState = 'original';
 }
 /* 
 * options is {} with possible values of tempo : int
@@ -28,10 +29,12 @@ ESC.controllers.PlayItem.prototype.getTitle = function(){
 ESC.controllers.PlayItem.prototype.setTransformation = function(type){
 	if(type === 'retrograde'){
 		this.currentMelody = this.baseMelody.retrograde();
+		this.melodyState = type;
 	}
 	//type is original
 	else{
 		this.currentMelody = this.baseMelody;
+		this.melodyState = 'original';
 	}
 }
 
@@ -65,6 +68,8 @@ ESC.controllers.Jukebox.prototype.setCurrentPlayItem = function(index){
 	var allPlaylistItems = $('#play_items_list li');
 	allPlaylistItems.removeClass('selected');
 	allPlaylistItems.eq(index).addClass('selected');
+
+	this.displayMelodyState(this.currentPlayItem.melodyState);
 
 	//displays sheet music
 	this.displayCurrentPlayItem();
@@ -104,6 +109,7 @@ ESC.controllers.Jukebox.prototype.melodyWithNew = function(attr){
 }
 ESC.controllers.Jukebox.prototype.transformMelody = function(type){
 	this.currentPlayItem.setTransformation(type);
+	this.displayMelodyState(this.currentPlayItem.melodyState);
 	this.displayCurrentPlayItem();
 }
 ESC.controllers.Jukebox.prototype.setTempo = function(tempo){
@@ -112,4 +118,8 @@ ESC.controllers.Jukebox.prototype.setTempo = function(tempo){
 		this.tempo = tempo;
 	}
 	$('#tempo_input, #tempo_slider').val(this.tempo);
+}
+ESC.controllers.Jukebox.prototype.displayMelodyState = function(melodyState){
+	$('.transformations li').removeClass('selected');
+	$('#button_transform_' + melodyState).addClass('selected');
 }
