@@ -83,11 +83,13 @@ ESC.models.Melody.prototype.toNotation = function(){
 }
 /*
 * Returns Band.js player instance - call .play function to play melody
+* options is {} with possible values of tempo : int
 */
-ESC.models.Melody.prototype.getPlayer = function(){
+ESC.models.Melody.prototype.getPlayer = function(options){
+	var tempo = options.tempo || this.tempo;
 	var conductor = new BandJS();
 	conductor.setTimeSignature(this.timeSignature.top, this.timeSignature.bottom);
-	conductor.setTempo(this.tempo);
+	conductor.setTempo(tempo);
 	var piano = conductor.createInstrument();
 	var len = this.pitches.length;
 	for (var i = 0; i < len; i++) {

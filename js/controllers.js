@@ -11,8 +11,11 @@ ESC.controllers.PlayItem = function(melody){
 	this.currentMelody = melody;
 	this.isStarred = false;
 }
-ESC.controllers.PlayItem.prototype.play = function(){
-	var player = this.currentMelody.getPlayer();
+/* 
+* options is {} with possible values of tempo : int
+*/
+ESC.controllers.PlayItem.prototype.play = function(options){
+	var player = this.currentMelody.getPlayer(options);
 	player.play();
 }
 ESC.controllers.PlayItem.prototype.getNotation = function(){
@@ -83,7 +86,7 @@ ESC.controllers.Jukebox.prototype.displayCurrentPlayItem = function(){
         }
 }
 ESC.controllers.Jukebox.prototype.play = function(){
-	this.currentPlayItem.play();
+	this.currentPlayItem.play({'tempo' : this.tempo});
 }
 ESC.controllers.Jukebox.prototype.newPlayItem = function(){
 	this.addPlayItem(new ESC.controllers.PlayItem(ESC.models.MelodyFactory.getToneRow()));
