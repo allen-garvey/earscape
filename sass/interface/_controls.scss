@@ -37,6 +37,9 @@ $controls_max_width: 50%;
 }
 .button_container:hover{
 	color: $color_secondary;
+	li &{
+		background-color: darken($color_secondary, 45%);
+	}
 	svg{
 		fill: $color_secondary;
 	}
@@ -107,9 +110,11 @@ $controls_max_width: 50%;
 		padding:0;
 	}
 	li{
-		display: inline;
+		display: inline-block;
 		margin-right: 2em;
-		padding: 0.5em;
+		padding: 1em;
+		white-space: nowrap;
+		margin-bottom: 0.5em;
 	}
 	li:hover, li.selected{
 		background-color: $color_primary;
