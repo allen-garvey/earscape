@@ -45,6 +45,9 @@ ESC.controllers.PlayItem.prototype.setTransformation = function(type){
 		this.melodyState = 'original';
 	}
 }
+ESC.controllers.PlayItem.prototype.toHTML = function(){
+	return this.getTitle() + '<span class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M11,47.8c-0.3,0-0.5-0.1-0.8-0.3c-0.5-0.4-0.6-0.9-0.5-1.4l5-15.5L1.6,21c-0.5-0.4-0.6-0.9-0.5-1.4c0.1-0.5,0.6-0.9,1.3-0.9h16.4l4.9-15.6c0.1-0.5,0.6-0.9,1.3-0.9s1,0.4,1.3,0.9l5,15.6h16.4c0.5,0,1,0.3,1.3,0.8c0.3,0.5,0,1.2-0.5,1.4l-13.1,9.5l5,15.5c0.1,0.5,0,1.2-0.5,1.4c-0.5,0.3-1,0.4-1.5,0L24.9,38l-13.1,9.5C11.5,47.7,11.2,47.8,11,47.8L11,47.8z M24.9,35.1c0.3,0,0.5,0.1,0.8,0.3l10.7,7.9l-4.1-12.6c-0.1-0.5,0-1.2,0.5-1.4l10.7-7.9H30.2c-0.5,0-1-0.4-1.3-0.9l-4-12.6l-4.1,12.6c-0.1,0.5-0.6,0.9-1.3,0.9H6.2l10.7,7.9c0.5,0.4,0.6,0.9,0.5,1.4l-4,12.6l10.7-7.9C24.4,35.2,24.7,35.1,24.9,35.1L24.9,35.1z"/><path class="star_center" d="M24.9,35.1c0.3,0,0.5,0.1,0.8,0.3l10.7,7.9l-4.1-12.6c-0.1-0.5,0-1.2,0.5-1.4l10.7-7.9H30.2c-0.5,0-1-0.4-1.3-0.9l-4-12.6l-4.1,12.6c-0.1,0.5-0.6,0.9-1.3,0.9H6.2l10.7,7.9c0.5,0.4,0.6,0.9,0.5,1.4l-4,12.6l10.7-7.9C24.4,35.2,24.7,35.1,24.9,35.1L24.9,35.1z"/></svg></span>';
+}
 
 /*
 * Jukebox - master controller for app
@@ -61,7 +64,7 @@ ESC.controllers.Jukebox.prototype.addPlayItem = function(playItem){
 	this.playItems.push(playItem);
 	var play_items_list = document.getElementById('play_items_list');
 	// console.log(playItem.getTitle());
-	play_items_list.innerHTML = play_items_list.innerHTML + "<li>" + playItem.getTitle() + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15.2 40.6c-.2 0-.4-.1-.6-.2-.4-.3-.5-.7-.4-1.1l3.9-12-10.2-7.5c-.4-.3-.5-.7-.4-1.1s.5-.7 1-.7h12.7L25 5.9c.1-.4.5-.7 1-.7s.8.3 1 .7L30.9 18h12.7c.4 0 .8.2 1 .6s0 .9-.4 1.1L34 27.1l3.9 12c.1.4 0 .9-.4 1.1s-.8.3-1.2 0L26 33l-10.2 7.4c-.2.1-.4.2-.6.2zM26 30.7c.2 0 .4.1.6.2l8.3 6.1-3.2-9.8c-.1-.4 0-.9.4-1.1l8.3-6.1H30.1c-.4 0-.8-.3-1-.7L26 9.5l-3.2 9.8c-.1.4-.5.7-1 .7H11.5l8.3 6.1c.4.3.5.7.4 1.1L17.1 37l8.3-6.1c.2-.1.4-.2.6-.2z"/></svg>' +  "</li>";
+	play_items_list.innerHTML = play_items_list.innerHTML + "<li>" + playItem.toHTML() +  "</li>";
 	this.setCurrentPlayItem(this.playItems.length - 1);
 	//scroll to added item
 	var playlist = $('.playlist');
