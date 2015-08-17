@@ -31,6 +31,14 @@ ESC.controllers.PlayItem.prototype.setTransformation = function(type){
 		this.currentMelody = this.baseMelody.retrograde();
 		this.melodyState = type;
 	}
+	else if(type === 'inversion'){
+		this.currentMelody = this.baseMelody.inversion();
+		this.melodyState = type;
+	}
+	else if(type === 'retrograde_inversion'){
+		this.currentMelody = this.baseMelody.retrogradeInversion();
+		this.melodyState = type;	
+	}
 	//type is original
 	else{
 		this.currentMelody = this.baseMelody;
