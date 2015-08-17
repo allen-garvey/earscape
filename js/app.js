@@ -6,18 +6,17 @@ document.getElementById('new_button').onclick = function(){ESC.jukebox.newPlayIt
 document.getElementById('button_replace_notes').onclick = function(){ESC.jukebox.melodyWithNew('notes')};
 document.getElementById('button_replace_rhythm').onclick = function(){ESC.jukebox.melodyWithNew('rhythm')};
 
-document.getElementById('button_transform_original').onclick = function(){
-																			ESC.jukebox.transformMelody('original');
-																			$('.transformations li').removeClass('selected');
-																			$(this).addClass('selected');
+(function(){
+	for (var i = 0; i < ESC.models.Melody.transformationTypes.length; i++) {
+		var type = ESC.models.Melody.transformationTypes[i];
+		(function(type){document.getElementById('button_transform_' + type).onclick = function(){
+																			ESC.jukebox.transformMelody(type);
 																		};
+																	})(type);
+	};
+})();
 
 
-document.getElementById('button_transform_retrograde').onclick = function(){
-																			ESC.jukebox.transformMelody('retrograde');
-																			$('.transformations li').removeClass('selected');
-																			$(this).addClass('selected');
-																			};
 $('#tempo_input, #tempo_slider').on('change', function(event) {
 	ESC.jukebox.setTempo(this.value);
 });
