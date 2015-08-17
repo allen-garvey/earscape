@@ -1,6 +1,10 @@
 $svg_button_max_width: 75px;
 $controls_max_width: 50%;
 
+.playlist li:hover,.transformations li:hover,.button_container:hover{
+	cursor: hand;
+	cursor: pointer;
+}
 .controls, .playlist{
 	@include media_q(sm){
 		max-width: $controls_max_width;
@@ -54,13 +58,15 @@ $controls_max_width: 50%;
 }
 
 .playlist{
+	overflow-y: auto;
+	height: 24em;
 	ol{
 		list-style-position: inside;
 		padding:0;
 	}
 	li{
 		padding: 1em 0;
-		&:hover{
+		&:hover, &.selected{
 			background: rgb(255,255,255); /* Old browsers */
 			background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(241,241,241,1) 38%, rgba(225,225,225,1) 72%, rgba(246,246,246,1) 100%); /* FF3.6+ */
 			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(38%,rgba(241,241,241,1)), color-stop(72%,rgba(225,225,225,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
