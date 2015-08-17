@@ -5,6 +5,7 @@
         <title>Earscape</title>
         <meta name="description" content="Test of band.js library"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href='http://fonts.googleapis.com/css?family=Comfortaa:700&amp;text=Earscpe' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" type="text/css" href="<?= STYLES_URL.'master.css'; ?>"/>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
