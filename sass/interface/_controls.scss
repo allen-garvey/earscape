@@ -56,6 +56,10 @@ $controls_max_width: 50%;
 	width: 3em;
 	margin-right: 1em;
 }
+.tempo_input_container:before{
+	content : "\2669=";
+	margin-right: 0.5em;
+}
 
 .playlist{
 	overflow-y: auto;
