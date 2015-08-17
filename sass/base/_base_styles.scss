@@ -12,6 +12,7 @@ body{
 h1,h2,h3,h4{
 	@include font_heading;
 	font-weight : normal;
+	margin: 0;
 }
 h1{
 	@include font_size(4);
@@ -39,4 +40,5 @@ a{
 .container{
 	max-width: $container_width;
 	margin: 0 auto;
+	padding : 0 $container_left_right_padding;
 }
