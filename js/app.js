@@ -21,3 +21,11 @@ document.getElementById('button_transform_retrograde').onclick = function(){
 $('#tempo_input, #tempo_slider').on('change', function(event) {
 	ESC.jukebox.setTempo(this.value);
 });
+
+$('#play_items_list').on('click', 'li', function(){
+	var index = $('#play_items_list li').index($(this));
+	ESC.jukebox.setCurrentPlayItem(index);
+});
+
+
+
