@@ -2,11 +2,16 @@
 * Header and nav styles
 */
 .jumbotron{
-	@include font_brand;
-	// background-color: lighten($color_primary, 40%);
+	@include font_heading;
+	background-color: lighten($color_secondary, 41%);
+	padding: 2rem 0;
+	margin-bottom: 2rem;
 }
 .jumbotron .brand{
+	@include font_brand;
+	@include font_size(5);
 	margin-bottom:0;
+	font-weight: bold;
 }
 .lead{
 	margin-top:0;
