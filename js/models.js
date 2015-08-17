@@ -22,6 +22,10 @@ ESC.models.Pitch.prototype.toHTML = function(){
 	return ESC.models.Pitch.pitchNames[this.noteNum].replace('#', '&#9839;').replace('b', '&#9837;');
 }
 
+ESC.models.Pitch.prototype.subtract = function(){
+	
+}
+
 /*
 * Model for rhythm information
 * duration is the number of 64th note triplets in note (i.e quarter is 24) - lowest number is 1
@@ -86,11 +90,8 @@ ESC.models.Melody.prototype.toNotation = function(){
 * Returns Band.js player instance - call .play function to play melody
 * options is {} with possible values of tempo : int
 */
-ESC.models.Melody.prototype.getPlayer = function(options){
-	var tempo = options.tempo || this.tempo;
-	var conductor = new BandJS();
+ESC.models.Melody.prototype.getPlayer = function(conductor){
 	conductor.setTimeSignature(this.timeSignature.top, this.timeSignature.bottom);
-	conductor.setTempo(tempo);
 	var piano = conductor.createInstrument();
 	var len = this.pitches.length;
 	for (var i = 0; i < len; i++) {
@@ -124,11 +125,14 @@ ESC.models.Melody.prototype.retrograde = function(){
 	retrograde.rhythms.reverse();
 	return retrograde;
 }
+/*
+* Inversion does not handle octave changes correctly (for now)
+*/
 ESC.models.Melody.prototype.inversion = function(){
 	var inverse = this.copy();
 	var reduceValue = function(value){
 		if(value > 11){
-			return value - 12;
+			return value % 12;
 		}
 		if(value < 0){
 			return value + 12;

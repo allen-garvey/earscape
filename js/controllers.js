@@ -15,9 +15,8 @@ ESC.controllers.PlayItem = function(melody){
 /* 
 * options is {} with possible values of tempo : int
 */
-ESC.controllers.PlayItem.prototype.play = function(options){
-	var player = this.currentMelody.getPlayer(options);
-	player.play();
+ESC.controllers.PlayItem.prototype.play = function(conductor){
+	return this.currentMelody.getPlayer(conductor);
 }
 ESC.controllers.PlayItem.prototype.getNotation = function(){
 	return this.currentMelody.toNotation();
@@ -57,13 +56,13 @@ ESC.controllers.Jukebox = function(){
 	this.playItems = [];
 	this.currentPlayItemIndex = -1;
 	this.currentPlayItem = null;
+	this.conductor = new BandJS();
 	this.setTempo(120);
 	
 }
 ESC.controllers.Jukebox.prototype.addPlayItem = function(playItem){
 	this.playItems.push(playItem);
 	var play_items_list = document.getElementById('play_items_list');
-	// console.log(playItem.getTitle());
 	play_items_list.innerHTML = play_items_list.innerHTML + "<li>" + playItem.toHTML() +  "</li>";
 	this.setCurrentPlayItem(this.playItems.length - 1);
 	//scroll to added item
@@ -102,7 +101,9 @@ ESC.controllers.Jukebox.prototype.displayCurrentPlayItem = function(){
         }
 }
 ESC.controllers.Jukebox.prototype.play = function(){
-	this.currentPlayItem.play({'tempo' : this.tempo});
+	this.conductor.setTempo(this.tempo); //changing tempo while song is playing causes weird distortion
+	this.player = this.currentPlayItem.play(this.conductor);
+	this.player.play();
 }
 ESC.controllers.Jukebox.prototype.newPlayItem = function(){
 	this.addPlayItem(new ESC.controllers.PlayItem(ESC.models.MelodyFactory.getToneRow()));
