@@ -1,0 +1,8 @@
+.footer{
+	padding-bottom: 3rem;
+	@include font_size(-1);
+	margin-top:1.8rem;
+	a{
+		color: $color_primary;
+	}
+}
