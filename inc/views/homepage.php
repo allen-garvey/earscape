@@ -50,8 +50,6 @@
             <a href="http://www.github.com/allen-garvey/earscape">Source on GitHub</a>
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src='<?= SCRIPTS_URL.'vextab-div.js'; ?>'></script>
-        <script type="text/javascript" src='<?= SCRIPTS_URL.'band.min.js'; ?>'></script>
         <script type="text/javascript" src='<?= SCRIPTS_URL.'app.js'; ?>'></script>
     </body>
 </html>
