@@ -102,6 +102,10 @@ ESC.controllers.Jukebox.prototype.displayCurrentPlayItem = function(){
 }
 ESC.controllers.Jukebox.prototype.play = function(){
 	this.conductor.setTempo(this.tempo); //changing tempo while song is playing causes weird distortion
+	//clear instruments since this.currentPlayItem.play(this.conductor) will load instruments into the conductor
+	//this has the same effect as clearing the last played melody from conductor's memory
+	//doesn't prevent playing multiple melodies at the same time
+	this.conductor.instruments = [];
 	this.player = this.currentPlayItem.play(this.conductor);
 	this.player.play();
 }
