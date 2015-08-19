@@ -22,26 +22,16 @@ ESC.models.Pitch.prototype.toHTML = function(){
 	return ESC.models.Pitch.pitchNames[this.noteNum].replace('#', '&#9839;').replace('b', '&#9837;');
 }
 /*
-* subtracts Pitch object from current instance while maintaining proper note number and octave
+* gets total value of Pitch by combining noteNum and octave
 * used to get inversion
 */
-ESC.models.Pitch.prototype.subtract = function(pitch){
-	var noteNumDiff = this.noteNum - pitch.noteNum;
-	var newOctave = this.octave;
-	if(noteNumDiff > 11){
-		noteNumDiff = noteNumDiff % 12;
-		if(pitch.octave >= this.octave){
-			newOctave += 1;
-		}
-	}
-	else if(noteNumDiff < 0){
-		noteNumDiff = noteNumDiff + 12;
-		if(pitch.octave < this.octave){
-			newOctave -= 1;
-		}
-	}
-	return new ESC.models.Pitch(noteNumDiff, newOctave);
-
+ESC.models.Pitch.prototype.totalValue = function(){
+	return this.octave * 12 + this.noteNum;
+}
+ESC.models.Pitch.pitchFromTotalValue = function(totalValue){
+	var noteNum = totalValue % 12;
+	var octave = Math.floor(totalValue / 12);
+	return new ESC.models.Pitch(noteNum, octave);
 }
 
 /*
@@ -149,12 +139,12 @@ ESC.models.Melody.prototype.retrograde = function(){
 ESC.models.Melody.prototype.inversion = function(){
 	var inverse = this.copy();
 
-	var diffArray = [new ESC.models.Pitch(inverse.pitches[0].noteNum, inverse.pitches[0].octave)];
+	var diffArray = [inverse.pitches[0].totalValue()];
 	for (var i = 1; i < inverse.pitches.length; i++) {
-		var currentPitch = inverse.pitches[i];
-		diffArray.push(new ESC.models.Pitch(currentPitch.noteNum,currentPitch.octave));
-		var diffNum = currentPitch.subtract(diffArray[i-1]).noteNum;
-		inverse.pitches[i] = inverse.pitches[i-1].subtract(new ESC.models.Pitch(diffNum, diffArray[i-1].octave));
+		var currentTotalValue = inverse.pitches[i].totalValue();
+		diffArray.push(currentTotalValue);
+		var diff =  currentTotalValue - diffArray[i-1];
+		inverse.pitches[i] = ESC.models.Pitch.pitchFromTotalValue(inverse.pitches[i-1].totalValue() - diff);
 	};
 	return inverse;
 }
