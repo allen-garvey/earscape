@@ -7,7 +7,7 @@ var rename = require('gulp-rename');
 var maps = require('gulp-sourcemaps');
 
 gulp.task('concatScripts', function(){
-	return gulp.src(['js/init.js', 'js/array.js', 'js/models.js', 'js/controllers.js', 'js/app.js'])
+	return gulp.src(['js/vendor/vextab/vextab-div.js', 'js/init.js', 'js/array.js', 'js/models.js', 'js/controllers.js', 'js/app.js'])
 		.pipe(maps.init())
 		.pipe(concat('app.js'))
 		.pipe(maps.write('./'))
