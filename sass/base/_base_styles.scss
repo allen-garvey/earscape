@@ -32,6 +32,10 @@ img,svg{
 }
 a{
 	color: $color_secondary;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
 }
 
 /**
