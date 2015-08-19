@@ -12,3 +12,4 @@ scripts/*.map
 *.png
 *.jpg
 *.jpeg
+js/vendor/bandjs/*
