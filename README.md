@@ -4,7 +4,7 @@ Generate a random twelve-tone melody with sheet music. Checkout the app at [http
 
 ## Dependencies
 
-* PHP 5.4.* or higher
+* PHP 5.6.* or higher
 * jQuery 2.1.4
 * Gulp 3.9.* or higher
 * [Band.js](https://github.com/meenie/band.js) (to play melody)
