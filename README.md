@@ -1,10 +1,11 @@
-#Earscape
+# Earscape
 
 Generate a random twelve-tone melody with sheet music. Checkout the app at [https://allen-garvey.github.io/earscape](https://allen-garvey.github.io/earscape)
 
-##Dependencies
+## Dependencies
 
 * PHP 5.4.* or higher
+* jQuery 2.1.4
 * Gulp 3.9.* or higher
 * [Band.js](https://github.com/meenie/band.js) (to play melody)
 * [Vextab](https://github.com/0xfe/vextab) (to generate sheet music)
@@ -12,13 +13,13 @@ Generate a random twelve-tone melody with sheet music. Checkout the app at [http
 * NPM to install packages
 * Sass to compile Scss source files
 
-##Getting Started
+## Getting Started
 
 * `cd` into downloaded project directory
 * Type `npm install` to install dependencies
 * If you do not have Gulp installed type `npm install gulp -g` or `sudo npm install gulp -g` to install Gulp
 * Type `gulp build` to compile raw js files
 
-##License
+## License
 
 Earscape is released under the MIT License. See license.txt for more details.
