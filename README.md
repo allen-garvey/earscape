@@ -1,6 +1,6 @@
 #Earscape
 
-Generate a random twelve-tone melody with sheet music.
+Generate a random twelve-tone melody with sheet music. Checkout the app at [https://allen-garvey.github.io/earscape](https://allen-garvey.github.io/earscape)
 
 ##Dependencies
 
