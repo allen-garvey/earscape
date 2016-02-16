@@ -5,7 +5,7 @@
         <title>Earscape</title>
         <meta name="description" content="Test of band.js library"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link href='http://fonts.googleapis.com/css?family=Comfortaa:700&amp;text=Earscpe' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Comfortaa:700&amp;text=Earscpe' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" type="text/css" href="<?= STYLES_URL.'master.css'; ?>"/>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
@@ -47,9 +47,9 @@
 
         </main>
         <footer class='container footer'>
-            <a href="http://www.github.com/allen-garvey/earscape">Source on GitHub</a>
+            <a href="//www.github.com/allen-garvey/earscape">Source on GitHub</a>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <?php if(ENVIRONMENT_CURRENT === ENVIRONMENT_DEVELOPMENT): ?>
             <script type="text/javascript" src='<?= SCRIPTS_URL.'band.min.js'; ?>'></script>
             <script type="text/javascript" src='<?= SCRIPTS_URL.'vextab-div.js'; ?>'></script>
