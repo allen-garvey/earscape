@@ -3,11 +3,11 @@
 }
 
 @mixin font_brand{
-	font-family: 'Comfortaa', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Avenir, 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	@content;
 }
 @mixin font_heading{
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Avenir, 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	@content;
 }
 @mixin font_body{
