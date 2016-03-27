@@ -3,7 +3,7 @@
 */
 .jumbotron{
 	@include font_heading;
-	background-color: lighten($color_secondary, 41%);
+	background-color: $color_secondary;
 	padding: 2rem 0;
 	margin-bottom: 2rem;
 }
