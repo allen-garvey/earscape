@@ -5,11 +5,7 @@ $controls_max_width: 50%;
 	cursor: hand;
 	cursor: pointer;
 }
-.controls, .playlist{
-	@include media_q(sm){
-		max-width: $controls_max_width;
-	}
-}
+
 .flex_container{
 	display:-webkit-flex;
 	display:flex;
@@ -35,14 +31,10 @@ $controls_max_width: 50%;
 		vertical-align: 50%;
 		padding-right: 0.5em;
 	}
-}
-.button_container:hover{
-	color: $color_secondary;
-	li &{
-		background-color: darken($color_secondary, 45%);
-	}
-	svg{
-		fill: $color_secondary;
+	&:hover{
+		li &{
+			@include material_selected;
+		}
 	}
 }
 
@@ -70,26 +62,19 @@ $controls_max_width: 50%;
 	height: 24em;
 	ol{
 		list-style-position: inside;
-		padding:0;
+		padding: 0 2em;
 	}
 	li{
-		padding: 1em 0;
+		padding: 1em;
 		&:hover, &.selected{
-			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fffae8+0,f7de79+69,f4e7be+100 */
-			background: #fffae8; /* Old browsers */
-			background: -moz-linear-gradient(top, #fffae8 0%, #f7de79 69%, #f4e7be 100%); /* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffae8), color-stop(69%,#f7de79), color-stop(100%,#f4e7be)); /* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, #fffae8 0%,#f7de79 69%,#f4e7be 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, #fffae8 0%,#f7de79 69%,#f4e7be 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(top, #fffae8 0%,#f7de79 69%,#f4e7be 100%); /* IE10+ */
-			background: linear-gradient(to bottom, #fffae8 0%,#f7de79 69%,#f4e7be 100%); /* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffae8', endColorstr='#f4e7be',GradientType=0 ); /* IE6-9 */
+			@include material_selected(0.1s);
 		}
 		&.selected{
 			font-weight: bold;
 		}
 	}
 	.star{
+		float: right;
 		& svg{
 			height: 1.5em;
 			vertical-align: bottom;
@@ -118,7 +103,7 @@ $controls_max_width: 50%;
 		margin-bottom: 0.5em;
 	}
 	li:hover, li.selected{
-		background-color: $color_primary;
 		color: $color_background_main;
+		@include material_selected(0.05s, $color_primary);
 	}
 }
