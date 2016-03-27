@@ -38,10 +38,15 @@ $controls_max_width: 50%;
 	}
 }
 
-.play{
+.button_container.play{
 	display:inline;
 	svg{
 		height: $svg_button_max_width;
+	}
+	&:hover{
+		svg{
+			fill: $color_secondary;
+		}
 	}
 }
 .tempo_slider{
@@ -49,6 +54,7 @@ $controls_max_width: 50%;
 }
 .tempo_input{
 	@include font_size(1);
+	@include font_heading;
 	width: 3em;
 	margin-right: 1em;
 }
@@ -58,6 +64,7 @@ $controls_max_width: 50%;
 }
 
 .playlist{
+	@include font_heading;
 	overflow-y: auto;
 	height: 24em;
 	ol{
