@@ -26,22 +26,21 @@ ESC.controllers.PlayItem.prototype.getTitle = function(){
 }
 
 ESC.controllers.PlayItem.prototype.setTransformation = function(type){
-	if(type === 'retrograde'){
-		this.currentMelody = this.baseMelody.retrograde();
-		this.melodyState = type;
-	}
-	else if(type === 'inversion'){
-		this.currentMelody = this.baseMelody.inversion();
-		this.melodyState = type;
-	}
-	else if(type === 'retrograde_inversion'){
-		this.currentMelody = this.baseMelody.retrogradeInversion();
-		this.melodyState = type;	
-	}
-	//type is original
-	else{
-		this.currentMelody = this.baseMelody;
-		this.melodyState = 'original';
+	this.melodyState = type;
+	switch(type){
+		case 'retrograde':
+			this.currentMelody = this.baseMelody.retrograde();
+			break;
+		case 'inversion':
+			this.currentMelody = this.baseMelody.inversion();
+			break;
+		case 'retrograde_inversion':
+			this.currentMelody = this.baseMelody.retrogradeInversion();
+			break;
+		//type is original
+		default:
+			this.currentMelody = this.baseMelody;
+			this.melodyState = 'original';
 	}
 }
 ESC.controllers.PlayItem.prototype.toHTML = function(){
